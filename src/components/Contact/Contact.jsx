@@ -13,6 +13,7 @@ import {
   Number,
   Wrapper,
 } from './Contact.styled';
+import DeletingContact from 'components/DeletingContact/DeletingContact';
 
 function Contact({ id, name, number }) {
   const { showModal, toggleModal } = useShowModal(false);
@@ -20,8 +21,11 @@ function Contact({ id, name, number }) {
 
   return (
     <>
-      {showModal && <Modal onClose={toggleModal} title={name}></Modal>}
-
+      {showModal && (
+        <Modal onClose={toggleModal} title={name}>
+          <DeletingContact id={id} name={name} toggleModal={toggleModal} />
+        </Modal>
+      )}
       <Wrapper>
         <NameWrapper>
           <IconUser />

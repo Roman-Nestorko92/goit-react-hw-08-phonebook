@@ -1,4 +1,3 @@
-import useLogoutUser from 'hooks/useLogoutUser';
 import {
   Button,
   Email,
@@ -9,8 +8,9 @@ import {
   UserName,
   Wrapper,
 } from './UserBar.styled';
-const { useSelector } = require('react-redux');
-const { getName, getEmail } = require('redux/auth/auth-selecors');
+import { useSelector } from 'react-redux';
+import { getName, getEmail } from 'redux/auth/auth-selecors';
+import useLogoutUser from 'hooks/useLogoutUser';
 
 function UserBar() {
   const userName = useSelector(state => getName(state));
