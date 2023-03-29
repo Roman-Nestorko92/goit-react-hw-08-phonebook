@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
 const initialState = {
-  user: { name: null },
+  user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -32,8 +32,8 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
 
-    [operations.logoutUser.fulfilled](state) {
-      state.user = { name: null };
+    [operations.logoutUser.fulfilled](state, action) {
+      state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
     },
